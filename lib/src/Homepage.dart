@@ -34,9 +34,19 @@ class _HomepageState extends State<Homepage> {
           onTap: (val) => setState(() => _currentIndex = val),
           items: [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
-            BottomNavigationBarItem(icon: Icon(Icons.bar_chart), label: ''),
             BottomNavigationBarItem(
-                icon: Icon(Icons.message_outlined), label: ''),
+                icon: Padding(
+                  padding: const EdgeInsets.only(right: 24.0),
+                  child: new Image.asset('assets/hashIcon.png',
+                      color: _currentIndex == 1 ? Colors.blue : Colors.black),
+                ),
+                label: ''),
+            BottomNavigationBarItem(
+                icon: Padding(
+                  padding: const EdgeInsets.only(left: 24.0),
+                  child: Icon(Icons.message_outlined),
+                ),
+                label: ''),
             BottomNavigationBarItem(icon: Icon(Icons.settings), label: ''),
           ],
         ),
