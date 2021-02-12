@@ -134,23 +134,101 @@ class _HashTabState extends State<HashTab> {
                     ),
                   ),
             SizedBox(height: 5),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 4.0),
-              child: Row(
-                children: <Widget>[
-                  SizedBox(width: 5),
-                  Icon(
-                    Icons.people_outline_outlined,
-                    size: 18,
-                  ),
-                  SizedBox(width: 5),
-                  Text("$followers People"),
-                ],
-              ),
+            TextButton.icon(
+              style: ButtonStyle(
+                  foregroundColor:
+                      MaterialStateProperty.all<Color>(Colors.black)),
+              onPressed: () {
+                showBottomSheet<void>(
+                    context: context,
+                    builder: (BuildContext context) => HashBottomSheet());
+              },
+              icon: Icon(Icons.people_outline_outlined, size: 18),
+              label: Text("$followers People"),
             ),
           ],
         );
       },
+    );
+  }
+}
+
+class HashBottomSheet extends StatelessWidget {
+  const HashBottomSheet({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(30),
+      ),
+      height: height * 3 / 4,
+      child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            SizedBox(height: 10),
+            Center(
+              child: SizedBox(
+                width: 76,
+                child: Divider(
+                  thickness: 4,
+                  color: Colors.grey,
+                ),
+              ),
+            ),
+            SizedBox(height: 10),
+            Expanded(
+              child: CustomScrollView(
+                semanticChildCount: 8,
+                slivers: <Widget>[
+                  SliverGrid(
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 3),
+                    delegate: SliverChildBuilderDelegate(
+                        (BuildContext context, int index) {
+                      if (index == 7) {
+                        return Column(
+                          children: [
+                            Container(
+                              height: 60,
+                              width: 60,
+                              decoration: BoxDecoration(
+                                  color: Colors.blueAccent[100],
+                                  borderRadius: BorderRadius.circular(30)),
+                              child: Icon(Icons.add),
+                            ),
+                            SizedBox(height: 10),
+                            Text(
+                              'Create New',
+                              style: TextStyle(fontSize: 14),
+                            ),
+                          ],
+                        );
+                      } else {
+                        return Column(
+                          children: <Widget>[
+                            CircleAvatar(
+                              radius: 30,
+                              backgroundImage: AssetImage('assets/dries.png'),
+                            ),
+                            SizedBox(height: 10),
+                            Text(
+                              'Melo drama',
+                              style: TextStyle(fontSize: 14),
+                            ),
+                          ],
+                        );
+                      }
+                    }, childCount: 8),
+                  ),
+                ],
+              ),
+            ),
+          ]),
     );
   }
 }
