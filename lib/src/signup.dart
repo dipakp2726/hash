@@ -15,15 +15,14 @@ class _SignupState extends State<Signup> {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
-      body: Container(
-        padding: EdgeInsets.all(12),
-        height: height,
-        width: width,
-        child: SingleChildScrollView(
+      body: SingleChildScrollView(
+        padding: EdgeInsets.symmetric(horizontal: 12),
+        child: SizedBox(
+          height: height,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.max,
             children: [
               Container(
                 margin: EdgeInsets.only(top: 40),
@@ -52,7 +51,6 @@ class _SignupState extends State<Signup> {
                   hintText: 'Your Email Address',
                 ),
               ),
-
               SizedBox(
                 height: 20.0,
               ),
@@ -62,7 +60,6 @@ class _SignupState extends State<Signup> {
                   hintText: 'Password',
                 ),
               ),
-
               SizedBox(
                 height: 20.0,
               ),
@@ -78,17 +75,14 @@ class _SignupState extends State<Signup> {
                   ),
                 ),
               ),
-
               SizedBox(
                 height: 20.0,
               ),
-
               TextField(
                 decoration: InputDecoration(
                   hintText: 'Your Email Address',
                 ),
               ),
-
               Padding(
                 padding: const EdgeInsets.only(top: 10),
                 child: Row(
@@ -108,9 +102,7 @@ class _SignupState extends State<Signup> {
                   ],
                 ),
               ),
-
-              // TODO replace with Expnaded
-              SizedBox(height: 50.0),
+              Spacer(),
               Container(
                   width: double.infinity,
                   height: 51,
@@ -134,6 +126,7 @@ class _SignupState extends State<Signup> {
                   style: TextStyle(fontSize: 18),
                 ),
               ),
+              SizedBox(height: 10.0),
             ],
           ),
         ),

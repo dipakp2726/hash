@@ -10,18 +10,16 @@ class _LoginState extends State<Login> {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
-      body: Container(
-        padding: EdgeInsets.all(12),
-        height: height,
-        width: width,
-        child: SingleChildScrollView(
+      body: SingleChildScrollView(
+        padding: EdgeInsets.symmetric(horizontal: 12),
+        child: SizedBox(
+          height: height,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.max,
             children: [
               Container(
                 margin: EdgeInsets.only(top: 40),
@@ -84,9 +82,7 @@ class _LoginState extends State<Login> {
                   ],
                 ),
               ),
-
-              // TODO replace with Expnaded
-              SizedBox(height: 150.0),
+              Spacer(),
               Container(
                   width: double.infinity,
                   height: 51,
@@ -110,6 +106,7 @@ class _LoginState extends State<Login> {
                   style: TextStyle(fontSize: 18),
                 ),
               ),
+              SizedBox(height: 10.0),
             ],
           ),
         ),
