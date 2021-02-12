@@ -76,7 +76,7 @@ class Settings extends StatelessWidget {
 
             Padding(
               padding: const EdgeInsets.only(top: 4.0),
-              child: Text('Settings',
+              child: Text('Signout',
                   style:
                       TextStyle(fontSize: 18.0, fontWeight: FontWeight.w600)),
             )
