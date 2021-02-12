@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:hash/src/model/model.dart';
+import 'package:provider/provider.dart';
 
-class HashTab extends StatelessWidget {
-  const HashTab({Key key}) : super(key: key);
+class HashTab extends StatefulWidget {
+  HashTab({Key key}) : super(key: key);
 
+  @override
+  _HashTabState createState() => _HashTabState();
+}
+
+class _HashTabState extends State<HashTab> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -18,6 +25,19 @@ class HashTab extends StatelessWidget {
                   image: AssetImage('assets/faith.png'),
                   fit: BoxFit.cover,
                   child: Container(),
+                ),
+              ),
+              Align(
+                alignment: Alignment(-.9, -.5),
+                child: IconButton(
+                  onPressed: () {
+                    Scaffold.of(context).openDrawer();
+                  },
+                  icon: Icon(
+                    Icons.menu,
+                    size: 30,
+                    color: Colors.white,
+                  ),
                 ),
               ),
               Positioned(
@@ -54,30 +74,7 @@ class HashTab extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      OutlinedButton(
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                            padding: EdgeInsets.symmetric(horizontal: 30),
-                            side: BorderSide(color: Colors.blue)),
-                        child: Text('Join'),
-                      ),
-                      TextButton.icon(
-                        icon: Icon(
-                          Icons.people_outline_outlined,
-                          size: 18,
-                        ),
-                        style: ButtonStyle(
-                          foregroundColor:
-                              MaterialStateProperty.all<Color>(Colors.black87),
-                        ),
-                        label: Text("12 People"),
-                        onPressed: null,
-                      ),
-                    ],
-                  ),
+                  _buildJoinAndFollowers(),
                 ],
               ),
               Text(
@@ -104,6 +101,44 @@ class HashTab extends StatelessWidget {
           ),
         )
       ],
+    );
+  }
+
+  Widget _buildJoinAndFollowers() {
+    return Consumer<AppState>(
+      builder: (_, state, child) {
+        final followers = state.count;
+        return Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            state.isCommnunityjoined
+                ? SizedBox(
+                    height: 20,
+                  )
+                : OutlinedButton(
+                    onPressed: () {
+                      state.joinCommunity();
+                    },
+                    style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.symmetric(horizontal: 30),
+                        side: BorderSide(color: Colors.blue)),
+                    child: Text('Join'),
+                  ),
+            TextButton.icon(
+              icon: Icon(
+                Icons.people_outline_outlined,
+                size: 18,
+              ),
+              style: ButtonStyle(
+                foregroundColor:
+                    MaterialStateProperty.all<Color>(Colors.black87),
+              ),
+              label: Text("$followers People"),
+              onPressed: null,
+            ),
+          ],
+        );
+      },
     );
   }
 }
