@@ -163,7 +163,9 @@ class HashBottomSheet extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(30),
+        borderRadius: new BorderRadius.only(
+            topLeft: const Radius.circular(30.0),
+            topRight: const Radius.circular(30.0)),
       ),
       height: height * 3 / 4,
       child: Column(

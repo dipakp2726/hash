@@ -34,7 +34,7 @@ Cras fermentum venenatis sapien, sit amet egestas sapien rutrum consequat. Donec
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      initialRoute: '/home',
+      initialRoute: '/splash',
       routes: {
         '/splash': (context) => Splash(),
         '/login': (context) => Login(),
@@ -43,7 +43,7 @@ Cras fermentum venenatis sapien, sit amet egestas sapien rutrum consequat. Donec
         '/home': (context) => Homepage(),
 
         //
-        '/': (context) => Privacy(title: 'Privacy Policy', body: pv),
+
         '/privacy': (context) => Privacy(title: 'Privacy Policy', body: pv),
         '/tnc': (context) => Privacy(title: 'Terms & Conditions', body: tnc),
       },

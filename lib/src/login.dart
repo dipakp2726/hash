@@ -99,7 +99,7 @@ class _LoginState extends State<Login> {
               SizedBox(height: 10.0),
               GestureDetector(
                 onTap: () {
-                  Navigator.pushReplacementNamed(context, '/signup');
+                  Navigator.pushNamed(context, '/signup');
                 },
                 child: Text(
                   'Create new accont',

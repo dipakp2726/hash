@@ -31,11 +31,14 @@ class Home extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           Expanded(
-            child: TextField(
-              decoration: InputDecoration(
-                hintText: 'Search your favorite communities',
-                prefixIcon: Icon(Icons.search),
-                border: OutlineInputBorder(),
+            child: SizedBox(
+              height: 37,
+              child: TextField(
+                decoration: InputDecoration(
+                    hintText: 'Search your favorite communities',
+                    prefixIcon: Icon(Icons.search),
+                    border: OutlineInputBorder(),
+                    contentPadding: EdgeInsets.only(top: 5)),
               ),
             ),
           ),
@@ -43,11 +46,15 @@ class Home extends StatelessWidget {
             width: 5,
           ),
           Container(
+            height: 37,
             decoration: BoxDecoration(
-              border: Border.all(color: Colors.black45),
+              borderRadius: BorderRadius.circular(5),
+              border: Border.all(
+                color: Colors.black45,
+              ),
             ),
             child: IconButton(
-              onPressed: null,
+              onPressed: () {},
               icon: Icon(Icons.menu),
             ),
           ),
@@ -87,7 +94,6 @@ class CardItem extends StatelessWidget {
             child: Row(
               children: <Widget>[
                 CircleAvatar(
-                  // TODO replace Image
                   backgroundColor: Colors.white,
                   backgroundImage: AssetImage('assets/dries.png'),
                   radius: 40,

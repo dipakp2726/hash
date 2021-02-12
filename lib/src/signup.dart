@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class Signup extends StatefulWidget {
@@ -9,6 +10,9 @@ class _SignupState extends State<Signup> {
   bool _obscureText = true;
 
   bool agree = false;
+
+  final underlineStyle =
+      TextStyle(decoration: TextDecoration.underline, color: Colors.blue);
 
   @override
   Widget build(BuildContext context) {
@@ -96,8 +100,29 @@ class _SignupState extends State<Signup> {
                       value: agree,
                     ),
                     Flexible(
-                      child: Text(
-                          'By creating account, I agree to Terms & Conditions and Privacy Policy.'),
+                      child: RichText(
+                        text: TextSpan(
+                          text: 'By creating account, I agree to ',
+                          style: TextStyle(color: Colors.black),
+                          children: <TextSpan>[
+                            TextSpan(
+                                text: 'Terms & Conditions ',
+                                style: underlineStyle,
+                                recognizer: TapGestureRecognizer()
+                                  ..onTap = () {
+                                    Navigator.pushNamed(context, '/tnc');
+                                  }),
+                            TextSpan(text: ' and  '),
+                            TextSpan(
+                                text: 'Privacy Policy',
+                                style: underlineStyle,
+                                recognizer: TapGestureRecognizer()
+                                  ..onTap = () {
+                                    Navigator.pushNamed(context, '/privacy');
+                                  }),
+                          ],
+                        ),
+                      ),
                     ),
                   ],
                 ),
