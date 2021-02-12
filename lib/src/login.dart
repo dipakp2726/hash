@@ -93,6 +93,7 @@ class _LoginState extends State<Login> {
                   child: ElevatedButton(
                     onPressed: () {
                       // Respond to button press
+                      Navigator.pushReplacementNamed(context, '/interest');
                     },
                     child: Text(
                       'SIGN IN',
@@ -101,7 +102,9 @@ class _LoginState extends State<Login> {
                   )),
               SizedBox(height: 10.0),
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushReplacementNamed(context, '/signup');
+                },
                 child: Text(
                   'Create new accont',
                   style: TextStyle(fontSize: 18),

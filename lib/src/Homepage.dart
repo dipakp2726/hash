@@ -14,13 +14,15 @@ class Homepage extends StatefulWidget {
 class _HomepageState extends State<Homepage> {
   var _currentIndex = 1;
 
+  final _tabs = <Widget>[Home(), HashTab(), null, Settings()];
+
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<AppState>(
       create: (_) => AppState(),
       child: Scaffold(
         drawer: HashDrawer(),
-        body: HashTab(),
+        body: _tabs[_currentIndex],
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: HashFAB(),
         bottomNavigationBar: BottomNavigationBar(

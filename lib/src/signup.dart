@@ -117,17 +117,20 @@ class _SignupState extends State<Signup> {
                   child: ElevatedButton(
                     onPressed: () {
                       // Respond to button press
+                      Navigator.pushReplacementNamed(context, '/interest');
                     },
                     child: Text(
-                      'SIGN IN',
+                      'SIGN UP',
                       style: TextStyle(fontSize: 18),
                     ),
                   )),
               SizedBox(height: 10.0),
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.pop(context);
+                },
                 child: Text(
-                  'Create new accont',
+                  'Sign in to existing account',
                   style: TextStyle(fontSize: 18),
                 ),
               ),

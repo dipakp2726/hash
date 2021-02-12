@@ -103,6 +103,9 @@ class _HashDrawerState extends State<HashDrawer> {
                       ),
                       ListTile(
                         leading: Icon(Icons.logout),
+                        onTap: () => Navigator.of(context)
+                            .pushNamedAndRemoveUntil(
+                                '/login', (Route<dynamic> route) => false),
                         title: Text(
                           'Signout of community',
                           style: TextStyle(fontSize: 14),

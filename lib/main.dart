@@ -1,4 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:hash/src/Homepage.dart';
+import 'package:hash/src/interest.dart';
+
+import 'package:hash/src/login.dart';
+import 'package:hash/src/privacy.dart';
+import 'package:hash/src/signup.dart';
+import 'package:hash/src/splash.dart';
 
 void main() {
   runApp(MyApp());
@@ -6,112 +13,40 @@ void main() {
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
+
+  final pv = '''
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo posuere feugiat. Vestibulum vulputate orci tincidunt, sollicitudin lectus id, suscipit mauris. Donec et mauris vitae dui varius rutrum. Nulla eu lectus ipsum. Quisque rutrum non magna sit amet fringilla. Quisque id augue posuere, suscipit elit ut, bibendum libero. Proin eget vestibulum eros.
+
+Cras fermentum venenatis sapien, sit amet egestas sapien rutrum consequat. Donec accumsan nisl id nulla porta maximus. Donec et mauris quis tellus laoreet sodales vel eu sapien. Donec pretium sodales odio, a interdum ante pharetra dignissim. Integer viverra ullamcorper ex eu faucibus. Praesent elementum ac massa ut porta. Ut ac leo id lorem fringilla varius. Curabitur dictum consequat efficitur. Aliquam lobortis maximus massa. Vivamus facilisis semper porttitor.
+''';
+
+  final tnc = '''
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo posuere feugiat. Vestibulum vulputate orci tincidunt, sollicitudin lectus id, suscipit mauris. Donec et mauris vitae dui varius rutrum. Nulla eu lectus ipsum. Quisque rutrum non magna sit amet fringilla. Quisque id augue posuere, suscipit elit ut, bibendum libero. Proin eget vestibulum eros.
+
+Cras fermentum venenatis sapien, sit amet egestas sapien rutrum consequat. Donec accumsan nisl id nulla porta maximus. Donec et mauris quis tellus laoreet sodales vel eu sapien. Donec pretium sodales odio, a interdum ante pharetra dignissim. Integer viverra ullamcorper ex eu faucibus. Praesent elementum ac massa ut porta. Ut ac leo id lorem fringilla varius. Curabitur dictum consequat efficitur. Aliquam lobortis maximus massa. Vivamus facilisis semper porttitor.
+''';
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Hash',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
         primarySwatch: Colors.blue,
-        // This makes the visual density adapt to the platform that you run
-        // the app on. For desktop platforms, the controls will be smaller and
-        // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
+      initialRoute: '/home',
+      routes: {
+        '/splash': (context) => Splash(),
+        '/login': (context) => Login(),
+        '/signup': (context) => Signup(),
+        '/interest': (context) => Interest(),
+        '/home': (context) => Homepage(),
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+        //
+        '/': (context) => Privacy(title: 'Privacy Policy', body: pv),
+        '/privacy': (context) => Privacy(title: 'Privacy Policy', body: pv),
+        '/tnc': (context) => Privacy(title: 'Terms & Conditions', body: tnc),
+      },
     );
   }
 }
