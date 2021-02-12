@@ -56,7 +56,7 @@ class _HashTabState extends State<HashTab> {
           ),
         ),
         Container(
-          padding: EdgeInsets.fromLTRB(18, 0, 18, 0),
+          padding: EdgeInsets.fromLTRB(18, 10, 18, 0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -77,11 +77,10 @@ class _HashTabState extends State<HashTab> {
                   _buildJoinAndFollowers(),
                 ],
               ),
+              SizedBox(height: 5),
               Text(
                 'Life has a meaning but do not set out to find out. Just live it out.',
-                style: TextStyle(
-                  fontSize: 12.0,
-                ),
+                style: TextStyle(fontSize: 12.0, color: Colors.black54),
               ),
             ],
           ),
@@ -92,14 +91,21 @@ class _HashTabState extends State<HashTab> {
         SizedBox(height: 20),
 
         Expanded(
-          child: ListView.builder(
-            padding: EdgeInsets.all(8),
-            // itemCount: 1,
-            itemBuilder: (BuildContext context, int index) {
-              return PostItemCard();
-            },
+          child: CustomScrollView(
+            slivers: <Widget>[
+              SliverList(
+                delegate: SliverChildBuilderDelegate(
+                    (BuildContext context, int index) {
+                  return index.isEven
+                      ? PostItemCard(
+                          image: true,
+                        )
+                      : PostItemCard();
+                }),
+              )
+            ],
           ),
-        )
+        ),
       ],
     );
   }
@@ -113,28 +119,34 @@ class _HashTabState extends State<HashTab> {
           children: [
             state.isCommnunityjoined
                 ? SizedBox(
-                    height: 20,
+                    height: 30,
                   )
-                : OutlinedButton(
-                    onPressed: () {
-                      state.joinCommunity();
-                    },
-                    style: ElevatedButton.styleFrom(
-                        padding: EdgeInsets.symmetric(horizontal: 30),
-                        side: BorderSide(color: Colors.blue)),
-                    child: Text('Join'),
+                : SizedBox(
+                    height: 30,
+                    child: OutlinedButton(
+                      onPressed: () {
+                        state.joinCommunity();
+                      },
+                      style: ElevatedButton.styleFrom(
+                          padding: EdgeInsets.symmetric(horizontal: 30),
+                          side: BorderSide(color: Colors.blue)),
+                      child: Text('Join'),
+                    ),
                   ),
-            TextButton.icon(
-              icon: Icon(
-                Icons.people_outline_outlined,
-                size: 18,
+            SizedBox(height: 5),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 4.0),
+              child: Row(
+                children: <Widget>[
+                  SizedBox(width: 5),
+                  Icon(
+                    Icons.people_outline_outlined,
+                    size: 18,
+                  ),
+                  SizedBox(width: 5),
+                  Text("$followers People"),
+                ],
               ),
-              style: ButtonStyle(
-                foregroundColor:
-                    MaterialStateProperty.all<Color>(Colors.black87),
-              ),
-              label: Text("$followers People"),
-              onPressed: null,
             ),
           ],
         );
@@ -144,9 +156,9 @@ class _HashTabState extends State<HashTab> {
 }
 
 class PostItemCard extends StatelessWidget {
-  const PostItemCard({
-    Key key,
-  }) : super(key: key);
+  PostItemCard({Key key, this.image = false}) : super(key: key);
+
+  final bool image;
 
   @override
   Widget build(BuildContext context) {
@@ -170,15 +182,26 @@ class PostItemCard extends StatelessWidget {
                 ),
               ],
             ),
-            TextButton.icon(
-              icon: Icon(Icons.access_time_rounded, size: 18),
-              label: Text("12 People"),
-              onPressed: null,
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 4.0),
+              child: Row(
+                children: <Widget>[
+                  SizedBox(width: 5),
+                  Icon(
+                    Icons.access_time_rounded,
+                    size: 18,
+                    color: Colors.black38,
+                  ),
+                  SizedBox(width: 5),
+                  Text("12 mins ago", style: TextStyle(color: Colors.black38)),
+                ],
+              ),
             ),
-            Image(
-              image: AssetImage('assets/faith.png'),
-              fit: BoxFit.cover,
-            ),
+            if (image)
+              Image(
+                image: AssetImage('assets/faith.png'),
+                fit: BoxFit.cover,
+              ),
             Padding(
               padding: const EdgeInsets.fromLTRB(0, 10, 60, 0),
               child: Text(

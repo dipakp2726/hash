@@ -22,36 +22,34 @@ class _HashDrawerState extends State<HashDrawer> {
             //  padding: EdgeInsets.fromLTRB(18, 60, 17, 0),
             child: Container(
               decoration: BoxDecoration(
-                  boxShadow: [BoxShadow(color: Colors.grey[200])]),
+                  boxShadow: [BoxShadow(color: Colors.grey[100])]),
               width: 100,
-              child: Expanded(
-                child: Padding(
-                  padding: EdgeInsets.fromLTRB(18, 60, 17, 0),
-                  child: CustomScrollView(
-                    semanticChildCount: 2,
-                    slivers: <Widget>[
-                      SliverList(
-                        key: GlobalKey(),
-                        delegate: SliverChildBuilderDelegate(
-                            (BuildContext context, int index) {
-                          return _buildDrawerInnerItem(index);
-                        }, childCount: 5),
-                      ),
-                      SliverList(
-                        key: GlobalKey(),
-                        delegate: SliverChildListDelegate(<Widget>[
-                          Container(
-                            margin: EdgeInsets.symmetric(vertical: 12),
-                            padding: EdgeInsets.all(2),
-                            height: 50,
-                            width: 50,
-                            decoration: BoxDecoration(color: Colors.grey),
-                            child: Icon(Icons.add),
-                          )
-                        ]),
-                      ),
-                    ],
-                  ),
+              child: Padding(
+                padding: EdgeInsets.fromLTRB(18, 60, 17, 0),
+                child: CustomScrollView(
+                  semanticChildCount: 2,
+                  slivers: <Widget>[
+                    SliverList(
+                      key: GlobalKey(),
+                      delegate: SliverChildBuilderDelegate(
+                          (BuildContext context, int index) {
+                        return _buildDrawerInnerItem(index);
+                      }, childCount: 5),
+                    ),
+                    SliverList(
+                      key: GlobalKey(),
+                      delegate: SliverChildListDelegate(<Widget>[
+                        Container(
+                          margin: EdgeInsets.symmetric(vertical: 12),
+                          padding: EdgeInsets.all(2),
+                          height: 50,
+                          width: 50,
+                          decoration: BoxDecoration(color: Colors.grey),
+                          child: Icon(Icons.add),
+                        )
+                      ]),
+                    ),
+                  ],
                 ),
               ),
             ),
