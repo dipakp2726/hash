@@ -88,9 +88,8 @@ class CardItem extends StatelessWidget {
               children: <Widget>[
                 CircleAvatar(
                   // TODO replace Image
-
                   backgroundColor: Colors.white,
-                  backgroundImage: AssetImage('assets/splash.png'),
+                  backgroundImage: AssetImage('assets/dries.png'),
                   radius: 40,
                 ),
                 Expanded(
