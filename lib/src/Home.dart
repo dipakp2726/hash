@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hash/src/values/colors.dart';
 
 class Home extends StatelessWidget {
   const Home({
@@ -7,10 +8,11 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
     return Column(
       children: <Widget>[
-        _buildHeader(),
-        _searchBar(),
+        _buildHeader(textTheme),
+        _searchBar(textTheme),
         Expanded(
           child: ListView.builder(
             itemCount: 20,
@@ -24,7 +26,7 @@ class Home extends StatelessWidget {
     );
   }
 
-  Container _searchBar() {
+  Container _searchBar(TextTheme textTheme) {
     return Container(
       padding: EdgeInsets.all(16),
       child: Row(
@@ -36,6 +38,7 @@ class Home extends StatelessWidget {
               child: TextField(
                 decoration: InputDecoration(
                     hintText: 'Search your favorite communities',
+                    hintStyle: textTheme.bodyText1.copyWith(color: kHashgrey),
                     prefixIcon: Icon(Icons.search),
                     border: OutlineInputBorder(),
                     contentPadding: EdgeInsets.only(top: 5)),
@@ -63,7 +66,7 @@ class Home extends StatelessWidget {
     );
   }
 
-  Container _buildHeader() {
+  Widget _buildHeader(TextTheme textTheme) {
     return Container(
       padding: EdgeInsets.fromLTRB(17, 50, 0, 0),
       height: 100,
@@ -73,7 +76,7 @@ class Home extends StatelessWidget {
       ]),
       child: Text(
         'Good morning, Alce!',
-        style: TextStyle(fontSize: 24),
+        style: textTheme.headline1,
       ),
     );
   }
@@ -86,7 +89,9 @@ class CardItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final texttheme = Theme.of(context).textTheme;
     return Card(
+      shape: RoundedRectangleBorder(),
       child: Column(
         children: <Widget>[
           Padding(
@@ -96,23 +101,25 @@ class CardItem extends StatelessWidget {
                 CircleAvatar(
                   backgroundColor: Colors.white,
                   backgroundImage: AssetImage('assets/dries.png'),
-                  radius: 40,
+                  radius: 37,
                 ),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.max,
                     children: <Widget>[
                       ListTile(
                         title: Text(
                           'Melo drama',
-                          style: TextStyle(
-                              fontSize: 20.0, fontWeight: FontWeight.w600),
+                          style: texttheme.headline2,
                         ),
                         subtitle: Padding(
-                          padding: const EdgeInsets.only(top: 6.0),
+                          padding: const EdgeInsets.only(top: 1.0),
                           child: Text(
                             'Life has a meaning but do not set out to find out. Just live it out.',
-                            style: TextStyle(fontSize: 12.0),
+                            style:
+                                texttheme.bodyText2.copyWith(color: kHashgrey),
                           ),
                         ),
                       ),
@@ -121,24 +128,33 @@ class CardItem extends StatelessWidget {
                         children: <Widget>[
                           TextButton.icon(
                             icon: Icon(
-                              Icons.people_outline_outlined,
-                              size: 18,
+                              Icons.people_outline_rounded,
+                              size: 12,
                             ),
                             style: ButtonStyle(
-                              foregroundColor: MaterialStateProperty.all<Color>(
-                                  Colors.black87),
+                              foregroundColor:
+                                  MaterialStateProperty.all<Color>(kHashBlack),
                             ),
-                            label: Text("12 People"),
+                            label:
+                                Text("12 People", style: texttheme.headline5),
                             onPressed: null,
                           ),
-                          ElevatedButton(
-                            onPressed: () {
-                              // Respond to button press
-                            },
-                            style: ElevatedButton.styleFrom(
-                              padding: EdgeInsets.symmetric(horizontal: 30),
+                          SizedBox(
+                            height: 21,
+                            width: 67,
+                            child: ElevatedButton(
+                              onPressed: () {
+                                // Respond to button press
+                              },
+                              style: ElevatedButton.styleFrom(
+                                padding: EdgeInsets.zero,
+                              ),
+                              child: Text(
+                                'Join',
+                                style: texttheme.headline5
+                                    .copyWith(color: kHashWhite),
+                              ),
                             ),
-                            child: Text('Join'),
                           )
                         ],
                       ),

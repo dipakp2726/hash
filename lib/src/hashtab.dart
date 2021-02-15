@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hash/src/model/model.dart';
+import 'package:hash/src/values/colors.dart';
 import 'package:provider/provider.dart';
 
 class HashTab extends StatefulWidget {
@@ -12,6 +13,7 @@ class HashTab extends StatefulWidget {
 class _HashTabState extends State<HashTab> {
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -66,21 +68,19 @@ class _HashTabState extends State<HashTab> {
                 children: [
                   Column(
                     children: [
-                      SizedBox(height: 35),
+                      SizedBox(height: 15),
                       Text(
                         'Melo drama',
-                        style: TextStyle(
-                            fontSize: 20.0, fontWeight: FontWeight.w600),
+                        style: textTheme.headline2,
                       ),
                     ],
                   ),
-                  _buildJoinAndFollowers(),
+                  _buildJoinAndFollowers(textTheme),
                 ],
               ),
-              SizedBox(height: 5),
               Text(
                 'Life has a meaning but do not set out to find out. Just live it out.',
-                style: TextStyle(fontSize: 12.0, color: Colors.black54),
+                style: textTheme.bodyText2.copyWith(color: kHashgrey),
               ),
             ],
           ),
@@ -110,7 +110,7 @@ class _HashTabState extends State<HashTab> {
     );
   }
 
-  Widget _buildJoinAndFollowers() {
+  Widget _buildJoinAndFollowers(TextTheme textTheme) {
     return Consumer<AppState>(
       builder: (_, state, child) {
         final followers = state.count;
@@ -119,10 +119,10 @@ class _HashTabState extends State<HashTab> {
           children: [
             state.isCommnunityjoined
                 ? SizedBox(
-                    height: 30,
+                    height: 21,
                   )
                 : SizedBox(
-                    height: 30,
+                    height: 21,
                     child: OutlinedButton(
                       onPressed: () {
                         state.joinCommunity();
@@ -130,10 +130,10 @@ class _HashTabState extends State<HashTab> {
                       style: ElevatedButton.styleFrom(
                           padding: EdgeInsets.symmetric(horizontal: 30),
                           side: BorderSide(color: Colors.blue)),
-                      child: Text('Join'),
+                      child: Text('Join', style: textTheme.headline5),
                     ),
                   ),
-            SizedBox(height: 5),
+            // SizedBox(height: 5),
             TextButton.icon(
               style: ButtonStyle(
                   foregroundColor:
@@ -143,8 +143,8 @@ class _HashTabState extends State<HashTab> {
                     context: context,
                     builder: (BuildContext context) => HashBottomSheet());
               },
-              icon: Icon(Icons.people_outline_outlined, size: 18),
-              label: Text("$followers People"),
+              icon: Icon(Icons.people_outline_rounded, size: 12),
+              label: Text("$followers People", style: textTheme.headline5),
             ),
           ],
         );
@@ -161,6 +161,8 @@ class HashBottomSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
+
+    final textTheme = Theme.of(context).textTheme;
     return Container(
       decoration: BoxDecoration(
         borderRadius: new BorderRadius.only(
@@ -199,15 +201,12 @@ class HashBottomSheet extends StatelessWidget {
                               height: 60,
                               width: 60,
                               decoration: BoxDecoration(
-                                  color: Colors.blueAccent[100],
+                                  color: kHashBlue.withOpacity(.13),
                                   borderRadius: BorderRadius.circular(30)),
                               child: Icon(Icons.add),
                             ),
                             SizedBox(height: 10),
-                            Text(
-                              'Create New',
-                              style: TextStyle(fontSize: 14),
-                            ),
+                            Text('Create New', style: textTheme.bodyText2),
                           ],
                         );
                       } else {
@@ -220,7 +219,7 @@ class HashBottomSheet extends StatelessWidget {
                             SizedBox(height: 10),
                             Text(
                               'Melo drama',
-                              style: TextStyle(fontSize: 14),
+                              style: textTheme.bodyText2,
                             ),
                           ],
                         );
@@ -242,6 +241,7 @@ class PostItemCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -254,26 +254,22 @@ class PostItemCard extends StatelessWidget {
                   backgroundImage: AssetImage('assets/dries.png'),
                 ),
                 SizedBox(width: 20),
-                Text(
-                  'Alce',
-                  style: TextStyle(
-                    fontSize: 18,
-                  ),
-                ),
+                Text('Alce', style: textTheme.headline2),
               ],
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 4.0),
+              padding: const EdgeInsets.only(top: 4.0, bottom: 2),
               child: Row(
                 children: <Widget>[
                   SizedBox(width: 5),
                   Icon(
                     Icons.access_time_rounded,
-                    size: 18,
+                    size: 12,
                     color: Colors.black38,
                   ),
                   SizedBox(width: 5),
-                  Text("12 mins ago", style: TextStyle(color: Colors.black38)),
+                  Text("12 mins ago",
+                      style: textTheme.headline6.copyWith(color: kHashgrey)),
                 ],
               ),
             ),
@@ -286,38 +282,34 @@ class PostItemCard extends StatelessWidget {
               padding: const EdgeInsets.fromLTRB(0, 10, 60, 0),
               child: Text(
                 'Life has a meaning but do not set out to find out. Just live it out.',
-                style: TextStyle(color: Colors.black38),
+                style: textTheme.bodyText2.copyWith(color: kHashgrey),
               ),
             ),
-            _buildButtonRow()
+            _buildButtonRow(textTheme)
           ],
         ),
       ),
     );
   }
 
-  Row _buildButtonRow() {
+  Row _buildButtonRow(TextTheme textTheme) {
     return Row(
       children: <Widget>[
         // like
         TextButton.icon(
-          icon: Icon(
-            Icons.thumb_up_alt_outlined,
-          ),
-          label: Text("12 "),
+          icon: Icon(Icons.thumb_up_alt_outlined, size: 20),
+          label: Text("12", style: textTheme.bodyText2),
           onPressed: null,
         ),
         // comment
         TextButton.icon(
-          icon: Icon(
-            Icons.messenger_outline,
-          ),
-          label: Text("12 "),
+          icon: Icon(Icons.messenger_outline_rounded, size: 20),
+          label: Text("12 ", style: textTheme.bodyText2),
           onPressed: null,
         ),
         // share
         IconButton(
-          icon: Icon(Icons.share_outlined),
+          icon: Icon(Icons.share_outlined, size: 20),
           onPressed: null,
         )
       ],

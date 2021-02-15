@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hash/src/values/colors.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -10,6 +11,7 @@ class _LoginState extends State<Login> {
 
   @override
   Widget build(BuildContext context) {
+    final subtitle2 = Theme.of(context).textTheme.subtitle2;
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
       body: SingleChildScrollView(
@@ -17,44 +19,34 @@ class _LoginState extends State<Login> {
         child: SizedBox(
           height: height,
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             mainAxisSize: MainAxisSize.max,
             children: [
-              Container(
-                margin: EdgeInsets.only(top: 40),
-                height: 128,
-                width: 128,
-                child: Image.asset('assets/hash.png'),
+              SizedBox(height: 40),
+              Center(
+                child: Image.asset(
+                  'assets/hash.png',
+                  height: 128,
+                  width: 128,
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Sign In',
-                      style: TextStyle(
-                          fontSize: 25.0, fontWeight: FontWeight.bold),
-                    ),
-                  ],
-                ),
+                child: Text('Sign In',
+                    style: Theme.of(context).textTheme.headline1),
               ),
-              SizedBox(
-                height: 20.0,
-              ),
+              SizedBox(height: 20.0),
               TextField(
                 decoration: InputDecoration(
-                  hintText: 'Your Email Address',
-                ),
+                    hintText: 'Your Email Address', hintStyle: subtitle2),
               ),
-              SizedBox(
-                height: 20.0,
-              ),
+              SizedBox(height: 20.0),
               TextField(
                 obscureText: _obscureText,
                 decoration: InputDecoration(
                   hintText: 'Password',
+                  hintStyle: subtitle2,
                   suffixIcon: GestureDetector(
                     onTap: () {
                       setState(() {
@@ -71,15 +63,10 @@ class _LoginState extends State<Login> {
                 height: 30.0,
               ),
               Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Forget password?',
-                      style: TextStyle(fontSize: 18, color: Colors.blue),
-                    ),
-                  ],
+                padding: const EdgeInsets.only(left: 10.0),
+                child: Text(
+                  'Forget password?',
+                  style: subtitle2.copyWith(color: kHashBlue),
                 ),
               ),
               Spacer(),
@@ -101,9 +88,11 @@ class _LoginState extends State<Login> {
                 onTap: () {
                   Navigator.pushNamed(context, '/signup');
                 },
-                child: Text(
-                  'Create new accont',
-                  style: TextStyle(fontSize: 18),
+                child: Center(
+                  child: Text(
+                    'Create new accont',
+                    style: Theme.of(context).textTheme.headline2,
+                  ),
                 ),
               ),
               SizedBox(height: 10.0),

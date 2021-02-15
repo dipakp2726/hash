@@ -1,3 +1,4 @@
+import 'package:hash/src/values/colors.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:hash/src/Home.dart';
@@ -27,27 +28,25 @@ class _HomepageState extends State<Homepage> {
         floatingActionButton: HashFAB(),
         bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
-          elevation: 20,
           currentIndex: _currentIndex,
-          unselectedItemColor: Colors.black,
-          selectedItemColor: Colors.blue,
           onTap: (val) => setState(() => _currentIndex = val),
           items: [
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
+            BottomNavigationBarItem(icon: Icon(Icons.home_outlined), label: ''),
             BottomNavigationBarItem(
                 icon: Padding(
                   padding: const EdgeInsets.only(right: 24.0),
                   child: new Image.asset('assets/hashIcon.png',
-                      color: _currentIndex == 1 ? Colors.blue : Colors.black),
+                      color: _currentIndex == 1 ? kHashBlue : Colors.black),
                 ),
                 label: ''),
             BottomNavigationBarItem(
                 icon: Padding(
                   padding: const EdgeInsets.only(left: 24.0),
-                  child: Icon(Icons.message_outlined),
+                  child: Icon(Icons.messenger_outline_outlined),
                 ),
                 label: ''),
-            BottomNavigationBarItem(icon: Icon(Icons.settings), label: ''),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.settings_outlined), label: ''),
           ],
         ),
       ),

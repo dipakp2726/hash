@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hash/src/values/colors.dart';
 
 class Interest extends StatelessWidget {
   @override
@@ -39,26 +40,26 @@ class Interest extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
+            SizedBox(height: 40),
             Center(
-              child: Container(
-                margin: EdgeInsets.only(top: 40),
+              child: Image.asset(
+                'assets/hash.png',
                 height: 128,
                 width: 128,
-                child: Image.asset('assets/hash.png'),
               ),
             ),
             SizedBox(height: 20),
             Text(
               'Pick your interests',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
+              style: Theme.of(context).textTheme.headline1,
             ),
             SizedBox(height: 10),
             Text(
               'To know yourself better, we need to know your interests. Please select atleast 3 topics.',
-              style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w400,
-                  color: Colors.black54),
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyText1
+                  .copyWith(color: kHashgrey),
             ),
             SizedBox(height: 10),
             Expanded(
@@ -81,10 +82,7 @@ class Interest extends StatelessWidget {
           width: double.infinity,
           height: 51,
           child: ElevatedButton(
-            onPressed: () {
-              // Respond to button press
-              Navigator.pushReplacementNamed(context, '/home');
-            },
+            onPressed: () => Navigator.pushReplacementNamed(context, '/home'),
             child: Text(
               'Next',
               style: TextStyle(fontSize: 18),
@@ -104,15 +102,18 @@ class InterestChip extends StatefulWidget {
 
 class _InterestChipState extends State<InterestChip> {
   bool _selected = false;
+
   @override
   Widget build(BuildContext context) {
+    final subtitle2 = Theme.of(context).textTheme.subtitle2;
     return ChoiceChip(
       label: Text(
         widget.title,
-        style: TextStyle(fontSize: 18),
+        style: !_selected ? subtitle2 : subtitle2.copyWith(color: kHashWhite),
       ),
       onSelected: (_) => setState(() => _selected = !_selected),
       selected: _selected,
+      selectedColor: kHashBlue,
       padding: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
       shape: RoundedRectangleBorder(),
     );

@@ -8,8 +8,6 @@ class Privacy extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   
-
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.fromLTRB(32, 44, 37, 0),
@@ -26,7 +24,7 @@ class Privacy extends StatelessWidget {
                 ),
                 Text(
                   title,
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
+                  style: Theme.of(context).textTheme.headline1,
                 ),
               ],
             ),
@@ -36,7 +34,7 @@ class Privacy extends StatelessWidget {
 
             Text(
               body,
-              style: TextStyle(fontSize: 14),
+              style: Theme.of(context).textTheme.bodyText1,
             ),
           ],
         ),

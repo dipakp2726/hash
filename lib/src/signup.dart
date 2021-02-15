@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:hash/src/values/colors.dart';
 
 class Signup extends StatefulWidget {
   @override
@@ -11,13 +12,15 @@ class _SignupState extends State<Signup> {
 
   bool agree = false;
 
-  final underlineStyle =
-      TextStyle(decoration: TextDecoration.underline, color: Colors.blue);
-
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
+
+    final subtitle2 = Theme.of(context).textTheme.subtitle2;
+    final underlineStyle =
+        TextStyle(decoration: TextDecoration.underline, color: kHashBlue);
+
+    //
     return Scaffold(
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: 12),
@@ -28,49 +31,39 @@ class _SignupState extends State<Signup> {
             mainAxisAlignment: MainAxisAlignment.center,
             mainAxisSize: MainAxisSize.max,
             children: [
-              Container(
-                margin: EdgeInsets.only(top: 40),
+              SizedBox(height: 40),
+              Image.asset(
+                'assets/hash.png',
                 height: 128,
                 width: 128,
-                child: Image.asset('assets/hash.png'),
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Sign Up',
-                      style: TextStyle(
-                          fontSize: 25.0, fontWeight: FontWeight.bold),
-                    ),
-                  ],
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'Sign Up',
+                    style: Theme.of(context).textTheme.headline1,
+                  ),
                 ),
               ),
-              SizedBox(
-                height: 20.0,
-              ),
+              SizedBox(height: 20.0),
               TextField(
                 decoration: InputDecoration(
-                  hintText: 'Your Email Address',
-                ),
+                    hintText: 'Your Email Address', hintStyle: subtitle2),
               ),
-              SizedBox(
-                height: 20.0,
-              ),
+              SizedBox(height: 20.0),
               TextField(
                 obscureText: _obscureText,
-                decoration: InputDecoration(
-                  hintText: 'Password',
-                ),
+                decoration:
+                    InputDecoration(hintText: 'Password', hintStyle: subtitle2),
               ),
-              SizedBox(
-                height: 20.0,
-              ),
+              SizedBox(height: 20.0),
               TextField(
                 obscureText: _obscureText,
                 decoration: InputDecoration(
                   hintText: 'Confirm Password',
+                  hintStyle: subtitle2,
                   suffixIcon: GestureDetector(
                     onTap: () => setState(() => _obscureText = !_obscureText),
                     child: Icon(
@@ -79,11 +72,10 @@ class _SignupState extends State<Signup> {
                   ),
                 ),
               ),
-              SizedBox(
-                height: 20.0,
-              ),
+              SizedBox(height: 20.0),
               TextField(
                 decoration: InputDecoration(
+                  hintStyle: subtitle2,
                   hintText: 'Your Email Address',
                 ),
               ),
@@ -148,7 +140,7 @@ class _SignupState extends State<Signup> {
                 },
                 child: Text(
                   'Sign in to existing account',
-                  style: TextStyle(fontSize: 18),
+                  style: Theme.of(context).textTheme.headline2,
                 ),
               ),
               SizedBox(height: 10.0),

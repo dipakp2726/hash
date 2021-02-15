@@ -63,7 +63,7 @@ class _HashDrawerState extends State<HashDrawer> {
                   padding: const EdgeInsets.fromLTRB(10, 150, 0, 0),
                   child: Text(
                     'Melo Drama',
-                    style: textTheme.headline5,
+                    style: textTheme.headline2,
                   ),
                 ),
                 Divider(
@@ -77,39 +77,41 @@ class _HashDrawerState extends State<HashDrawer> {
                     children: [
                       ListTile(
                         leading: Icon(Icons.dashboard_outlined),
-                        title: Text('Channels'),
+                        title: Text(
+                          'Channels',
+                          style: textTheme.headline4,
+                        ),
                       ),
                       Divider(
                         thickness: 2,
                       ),
                       ListTile(
                         leading: Icon(Icons.people_alt_outlined),
-                        title: Text('Members'),
+                        title: Text('Members', style: textTheme.headline4),
                       ),
                       ListTile(
                         leading: Icon(Icons.person_add_alt),
-                        title: Text('Invite Members'),
+                        title:
+                            Text('Invite Members', style: textTheme.headline4),
                       ),
                       Divider(
                         thickness: 2,
                       ),
                       ListTile(
                         leading: Icon(Icons.help_outline),
-                        title: Text('Help'),
+                        title: Text('Help', style: textTheme.headline4),
                       ),
                       ListTile(
                         leading: Icon(Icons.settings_input_component_sharp),
-                        title: Text('Settings'),
+                        title: Text('Settings', style: textTheme.headline4),
                       ),
                       ListTile(
                         leading: Icon(Icons.logout),
                         onTap: () => Navigator.of(context)
                             .pushNamedAndRemoveUntil(
                                 '/login', (Route<dynamic> route) => false),
-                        title: Text(
-                          'Signout of community',
-                          style: TextStyle(fontSize: 14),
-                        ),
+                        title: Text('Signout of community',
+                            style: textTheme.headline4),
                       ),
                     ],
                   ),
