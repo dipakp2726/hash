@@ -30,15 +30,14 @@ class _SplashState extends State<Splash> {
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.end,
       children: <Widget>[
+        const SizedBox(height: 40),
         Expanded(
-          child: Container(
-            margin: EdgeInsets.only(top: 40),
+          child: Image.asset(
+            'assets/hash.png',
             height: 128,
             width: 128,
-            child: Image.asset('assets/hash.png'),
           ),
         ),
-        // Image.asset('assets/hash.png'),
         Image.asset(
           'assets/splash.png',
           fit: BoxFit.cover,
