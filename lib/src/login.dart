@@ -11,7 +11,7 @@ class _LoginState extends State<Login> {
 
   @override
   Widget build(BuildContext context) {
-    final subtitle2 = Theme.of(context).textTheme.subtitle2;
+    final subtitle2 = Theme.of(context).textTheme.subtitle2!;
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
       body: SingleChildScrollView(

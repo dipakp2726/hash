@@ -58,7 +58,7 @@ class Interest extends StatelessWidget {
               'To know yourself better, we need to know your interests. Please select atleast 3 topics.',
               style: Theme.of(context)
                   .textTheme
-                  .bodyText1
+                  .bodyText1!
                   .copyWith(color: kHashgrey),
             ),
             SizedBox(height: 10),
@@ -93,9 +93,9 @@ class Interest extends StatelessWidget {
 }
 
 class InterestChip extends StatefulWidget {
-  InterestChip({Key key, this.title}) : super(key: key);
+  InterestChip({Key? key, this.title}) : super(key: key);
 
-  final String title;
+  final String? title;
   @override
   _InterestChipState createState() => _InterestChipState();
 }
@@ -108,8 +108,8 @@ class _InterestChipState extends State<InterestChip> {
     final subtitle2 = Theme.of(context).textTheme.subtitle2;
     return ChoiceChip(
       label: Text(
-        widget.title,
-        style: !_selected ? subtitle2 : subtitle2.copyWith(color: kHashWhite),
+        widget.title!,
+        style: !_selected ? subtitle2 : subtitle2!.copyWith(color: kHashWhite),
       ),
       onSelected: (_) => setState(() => _selected = !_selected),
       selected: _selected,

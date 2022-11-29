@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hash/src/values/colors.dart';
 
 class Settings extends StatelessWidget {
-  const Settings({Key key}) : super(key: key);
+  const Settings({Key? key}) : super(key: key);
 
   final groups = const ['general', 'random', 'daily_practice', 'dailogues'];
   final people = const [
@@ -21,9 +21,9 @@ class Settings extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     //
-    final titlestyle = textTheme.headline4.copyWith(color: kHashgrey);
+    final titlestyle = textTheme.headline4!.copyWith(color: kHashgrey);
 
-    final itemstyle = textTheme.headline4;
+    final itemstyle = textTheme.headline4!;
 
     return SingleChildScrollView(
       child: Padding(
@@ -44,7 +44,7 @@ class Settings extends StatelessWidget {
               padding: const EdgeInsets.fromLTRB(0, 10, 60, 0),
               child: Text(
                 'Life has a meaning but do not set out to find out. Just live it out.',
-                style: textTheme.bodyText2.copyWith(color: kHashgrey),
+                style: textTheme.bodyText2!.copyWith(color: kHashgrey),
               ),
             ),
             space,

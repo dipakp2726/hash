@@ -15,7 +15,7 @@ class Homepage extends StatefulWidget {
 class _HomepageState extends State<Homepage> {
   var _currentIndex = 0;
 
-  final _tabs = <Widget>[Home(), HashTab(), null, Settings()];
+  final _tabs = <Widget?>[Home(), HashTab(), null, Settings()];
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +56,7 @@ class _HomepageState extends State<Homepage> {
 
 class HashFAB extends StatelessWidget {
   const HashFAB({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

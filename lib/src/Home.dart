@@ -3,7 +3,7 @@ import 'package:hash/src/values/colors.dart';
 
 class Home extends StatelessWidget {
   const Home({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -38,7 +38,7 @@ class Home extends StatelessWidget {
               child: TextField(
                 decoration: InputDecoration(
                     hintText: 'Search your favorite communities',
-                    hintStyle: textTheme.bodyText1.copyWith(color: kHashgrey),
+                    hintStyle: textTheme.bodyText1!.copyWith(color: kHashgrey),
                     prefixIcon: Icon(Icons.search),
                     border: OutlineInputBorder(),
                     contentPadding: EdgeInsets.only(top: 5)),
@@ -84,7 +84,7 @@ class Home extends StatelessWidget {
 
 class CardItem extends StatelessWidget {
   const CardItem({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -119,7 +119,7 @@ class CardItem extends StatelessWidget {
                           child: Text(
                             'Life has a meaning but do not set out to find out. Just live it out.',
                             style:
-                                texttheme.bodyText2.copyWith(color: kHashgrey),
+                                texttheme.bodyText2!.copyWith(color: kHashgrey),
                           ),
                         ),
                       ),
@@ -151,7 +151,7 @@ class CardItem extends StatelessWidget {
                               ),
                               child: Text(
                                 'Join',
-                                style: texttheme.headline5
+                                style: texttheme.headline5!
                                     .copyWith(color: kHashWhite),
                               ),
                             ),

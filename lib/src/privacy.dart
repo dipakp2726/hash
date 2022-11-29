@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 class Privacy extends StatelessWidget {
   Privacy({this.title, this.body});
 
-  final String title;
-  final String body;
+  final String? title;
+  final String? body;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class Privacy extends StatelessWidget {
                   icon: Icon(Icons.arrow_back),
                 ),
                 Text(
-                  title,
+                  title!,
                   style: Theme.of(context).textTheme.headline1,
                 ),
               ],
@@ -33,7 +33,7 @@ class Privacy extends StatelessWidget {
             SizedBox(height: 30),
 
             Text(
-              body,
+              body!,
               style: Theme.of(context).textTheme.bodyText1,
             ),
           ],

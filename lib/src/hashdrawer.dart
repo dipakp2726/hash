@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class HashDrawer extends StatefulWidget {
   HashDrawer({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -22,7 +22,7 @@ class _HashDrawerState extends State<HashDrawer> {
             //  padding: EdgeInsets.fromLTRB(18, 60, 17, 0),
             child: Container(
               decoration: BoxDecoration(
-                  boxShadow: [BoxShadow(color: Colors.grey[100])]),
+                  boxShadow: [BoxShadow(color: Colors.grey[100]!)]),
               width: 100,
               child: Padding(
                 padding: EdgeInsets.fromLTRB(18, 60, 17, 0),
