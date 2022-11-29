@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hash/src/values/colors.dart';
 
 class Settings extends StatelessWidget {
-  const Settings({Key? key}) : super(key: key);
+  const Settings({super.key});
 
   final groups = const ['general', 'random', 'daily_practice', 'dailogues'];
   final people = const [
@@ -31,11 +31,11 @@ class Settings extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            CircleAvatar(
+            const CircleAvatar(
               backgroundImage: AssetImage('assets/dries.png'),
               radius: 50,
             ),
-            SizedBox(height: 15),
+            const SizedBox(height: 15),
             Text(
               'Alice',
               style: textTheme.headline2,
@@ -52,7 +52,7 @@ class Settings extends StatelessWidget {
             Row(
               children: <Widget>[
                 Text('12 \n Following', style: textTheme.bodyText2),
-                SizedBox(width: 20),
+                const SizedBox(width: 20),
                 Text('12 \n Followers', style: textTheme.bodyText2),
               ],
             ),
@@ -65,7 +65,7 @@ class Settings extends StatelessWidget {
             ..._buildGroups(itemstyle),
 
             Padding(
-              padding: const EdgeInsets.only(top: 4.0),
+              padding: const EdgeInsets.only(top: 4),
               child: Text('Add new', style: itemstyle),
             ),
 
@@ -76,7 +76,7 @@ class Settings extends StatelessWidget {
             ...people.map((item) => _settingsItem(item, itemstyle)).toList(),
 
             Padding(
-              padding: const EdgeInsets.only(top: 4.0),
+              padding: const EdgeInsets.only(top: 4),
               child: Text(
                 'Signout',
                 style: itemstyle.copyWith(fontWeight: FontWeight.w600),
@@ -90,17 +90,17 @@ class Settings extends StatelessWidget {
 
   Widget _settingsItem(String title, TextStyle itemstyle) {
     return Padding(
-      padding: const EdgeInsets.only(top: 6.0),
+      padding: const EdgeInsets.only(top: 6),
       child: Text(title, style: itemstyle),
     );
   }
 
-  _buildGroups(TextStyle itemstyle) {
+  List<Padding> _buildGroups(TextStyle itemstyle) {
     return groups
         .map((item) => Padding(
-              padding: const EdgeInsets.only(top: 4.0),
+              padding: const EdgeInsets.only(top: 4),
               child: Text('# $item', style: itemstyle),
-            ))
+            ),)
         .toList();
   }
 }

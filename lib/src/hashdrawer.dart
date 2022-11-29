@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class HashDrawer extends StatefulWidget {
-  HashDrawer({
-    Key? key,
-  }) : super(key: key);
+  const HashDrawer({
+    super.key,
+  });
 
   @override
   _HashDrawerState createState() => _HashDrawerState();
@@ -22,10 +22,10 @@ class _HashDrawerState extends State<HashDrawer> {
             //  padding: EdgeInsets.fromLTRB(18, 60, 17, 0),
             child: Container(
               decoration: BoxDecoration(
-                  boxShadow: [BoxShadow(color: Colors.grey[100]!)]),
+                  boxShadow: [BoxShadow(color: Colors.grey[100]!)],),
               width: 100,
               child: Padding(
-                padding: EdgeInsets.fromLTRB(18, 60, 17, 0),
+                padding: const EdgeInsets.fromLTRB(18, 60, 17, 0),
                 child: CustomScrollView(
                   semanticChildCount: 2,
                   slivers: <Widget>[
@@ -34,18 +34,18 @@ class _HashDrawerState extends State<HashDrawer> {
                       delegate: SliverChildBuilderDelegate(
                           (BuildContext context, int index) {
                         return _buildDrawerInnerItem(index);
-                      }, childCount: 5),
+                      }, childCount: 5,),
                     ),
                     SliverList(
                       key: GlobalKey(),
                       delegate: SliverChildListDelegate(<Widget>[
                         Container(
-                          margin: EdgeInsets.symmetric(vertical: 12),
-                          padding: EdgeInsets.all(2),
+                          margin: const EdgeInsets.symmetric(vertical: 12),
+                          padding: const EdgeInsets.all(2),
                           height: 50,
                           width: 50,
-                          decoration: BoxDecoration(color: Colors.grey),
-                          child: Icon(Icons.add),
+                          decoration: const BoxDecoration(color: Colors.grey),
+                          child: const Icon(Icons.add),
                         )
                       ]),
                     ),
@@ -66,52 +66,52 @@ class _HashDrawerState extends State<HashDrawer> {
                     style: textTheme.headline2,
                   ),
                 ),
-                Divider(
+                const Divider(
                   height: 1,
                   thickness: 1,
                   color: Colors.black,
                 ),
                 Expanded(
                   child: ListView(
-                    padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                     children: [
                       ListTile(
-                        leading: Icon(Icons.dashboard_outlined),
+                        leading: const Icon(Icons.dashboard_outlined),
                         title: Text(
                           'Channels',
                           style: textTheme.headline4,
                         ),
                       ),
-                      Divider(
+                      const Divider(
                         thickness: 2,
                       ),
                       ListTile(
-                        leading: Icon(Icons.people_alt_outlined),
+                        leading: const Icon(Icons.people_alt_outlined),
                         title: Text('Members', style: textTheme.headline4),
                       ),
                       ListTile(
-                        leading: Icon(Icons.person_add_alt),
+                        leading: const Icon(Icons.person_add_alt),
                         title:
                             Text('Invite Members', style: textTheme.headline4),
                       ),
-                      Divider(
+                      const Divider(
                         thickness: 2,
                       ),
                       ListTile(
-                        leading: Icon(Icons.help_outline),
+                        leading: const Icon(Icons.help_outline),
                         title: Text('Help', style: textTheme.headline4),
                       ),
                       ListTile(
-                        leading: Icon(Icons.settings_input_component_sharp),
+                        leading: const Icon(Icons.settings_input_component_sharp),
                         title: Text('Settings', style: textTheme.headline4),
                       ),
                       ListTile(
-                        leading: Icon(Icons.logout),
+                        leading: const Icon(Icons.logout),
                         onTap: () => Navigator.of(context)
                             .pushNamedAndRemoveUntil(
-                                '/login', (Route<dynamic> route) => false),
+                                '/login', (Route<dynamic> route) => false,),
                         title: Text('Signout of community',
-                            style: textTheme.headline4),
+                            style: textTheme.headline4,),
                       ),
                     ],
                   ),
@@ -131,9 +131,9 @@ class _HashDrawerState extends State<HashDrawer> {
           decoration: _active != index
               ? null
               : BoxDecoration(
-                  border: Border.all(color: Colors.black, width: 2)),
-          margin: EdgeInsets.symmetric(vertical: 12),
-          padding: EdgeInsets.all(2),
+                  border: Border.all(width: 2),),
+          margin: const EdgeInsets.symmetric(vertical: 12),
+          padding: const EdgeInsets.all(2),
           height: 65,
           width: 65,
           child: Image.asset(
@@ -141,7 +141,7 @@ class _HashDrawerState extends State<HashDrawer> {
             height: 50,
             width: 50,
             fit: BoxFit.fill,
-          )),
+          ),),
     );
   }
 }

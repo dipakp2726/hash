@@ -4,7 +4,7 @@ import 'package:hash/src/values/colors.dart';
 class Interest extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var pickup = [
+    final pickup = [
       'News',
       'Entertainment',
       'Baking',
@@ -36,11 +36,11 @@ class Interest extends StatelessWidget {
 
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(12.0),
+        padding: const EdgeInsets.all(12),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            SizedBox(height: 40),
+            const SizedBox(height: 40),
             Center(
               child: Image.asset(
                 'assets/hash.png',
@@ -48,12 +48,12 @@ class Interest extends StatelessWidget {
                 width: 128,
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Text(
               'Pick your interests',
               style: Theme.of(context).textTheme.headline1,
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Text(
               'To know yourself better, we need to know your interests. Please select atleast 3 topics.',
               style: Theme.of(context)
@@ -61,39 +61,39 @@ class Interest extends StatelessWidget {
                   .bodyText1!
                   .copyWith(color: kHashgrey),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Expanded(
               child: SingleChildScrollView(
                 child: Wrap(
-                    spacing: 8.0, // gap between adjacent chips
-                    runSpacing: 4.0,
+                    spacing: 8, // gap between adjacent chips
+                    runSpacing: 4,
                     children: pickup
                         .map((title) => InterestChip(title: title))
-                        .toList()),
+                        .toList(),),
               ),
             ),
-            SizedBox(height: 60),
+            const SizedBox(height: 60),
           ],
         ),
       ),
       floatingActionButton: Container(
-          margin: EdgeInsets.all(10),
-          padding: EdgeInsets.only(left: 30),
+          margin: const EdgeInsets.all(10),
+          padding: const EdgeInsets.only(left: 30),
           width: double.infinity,
           height: 51,
           child: ElevatedButton(
             onPressed: () => Navigator.pushReplacementNamed(context, '/home'),
-            child: Text(
+            child: const Text(
               'Next',
               style: TextStyle(fontSize: 18),
             ),
-          )),
+          ),),
     );
   }
 }
 
 class InterestChip extends StatefulWidget {
-  InterestChip({Key? key, this.title}) : super(key: key);
+  const InterestChip({super.key, this.title});
 
   final String? title;
   @override
@@ -114,8 +114,8 @@ class _InterestChipState extends State<InterestChip> {
       onSelected: (_) => setState(() => _selected = !_selected),
       selected: _selected,
       selectedColor: kHashBlue,
-      padding: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-      shape: RoundedRectangleBorder(),
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+      shape: const RoundedRectangleBorder(),
     );
   }
 }

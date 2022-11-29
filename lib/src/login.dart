@@ -12,18 +12,17 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     final subtitle2 = Theme.of(context).textTheme.subtitle2!;
-    double height = MediaQuery.of(context).size.height;
+    final height = MediaQuery.of(context).size.height;
     return Scaffold(
       body: SingleChildScrollView(
-        padding: EdgeInsets.symmetric(horizontal: 12),
+        padding: const EdgeInsets.symmetric(horizontal: 12),
         child: SizedBox(
           height: height,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
-            mainAxisSize: MainAxisSize.max,
             children: [
-              SizedBox(height: 40),
+              const SizedBox(height: 40),
               Center(
                 child: Image.asset(
                   'assets/hash.png',
@@ -32,16 +31,16 @@ class _LoginState extends State<Login> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8),
                 child: Text('Sign In',
-                    style: Theme.of(context).textTheme.headline1),
+                    style: Theme.of(context).textTheme.headline1,),
               ),
-              SizedBox(height: 20.0),
+              const SizedBox(height: 20),
               TextField(
                 decoration: InputDecoration(
-                    hintText: 'Your Email Address', hintStyle: subtitle2),
+                    hintText: 'Your Email Address', hintStyle: subtitle2,),
               ),
-              SizedBox(height: 20.0),
+              const SizedBox(height: 20),
               TextField(
                 obscureText: _obscureText,
                 decoration: InputDecoration(
@@ -59,18 +58,18 @@ class _LoginState extends State<Login> {
                   ),
                 ),
               ),
-              SizedBox(
-                height: 30.0,
+              const SizedBox(
+                height: 30,
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 10.0),
+                padding: const EdgeInsets.only(left: 10),
                 child: Text(
                   'Forget password?',
                   style: subtitle2.copyWith(color: kHashBlue),
                 ),
               ),
-              Spacer(),
-              Container(
+              const Spacer(),
+              SizedBox(
                   width: double.infinity,
                   height: 51,
                   child: ElevatedButton(
@@ -78,12 +77,12 @@ class _LoginState extends State<Login> {
                       // Respond to button press
                       Navigator.pushReplacementNamed(context, '/interest');
                     },
-                    child: Text(
+                    child: const Text(
                       'SIGN IN',
                       style: TextStyle(fontSize: 18),
                     ),
-                  )),
-              SizedBox(height: 10.0),
+                  ),),
+              const SizedBox(height: 10),
               GestureDetector(
                 onTap: () {
                   Navigator.pushNamed(context, '/signup');
@@ -95,7 +94,7 @@ class _LoginState extends State<Login> {
                   ),
                 ),
               ),
-              SizedBox(height: 10.0),
+              const SizedBox(height: 10),
             ],
           ),
         ),

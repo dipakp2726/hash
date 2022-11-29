@@ -3,8 +3,8 @@ import 'package:hash/src/values/colors.dart';
 
 class Home extends StatelessWidget {
   const Home({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -16,9 +16,9 @@ class Home extends StatelessWidget {
         Expanded(
           child: ListView.builder(
             itemCount: 20,
-            padding: EdgeInsets.symmetric(horizontal: 12),
+            padding: const EdgeInsets.symmetric(horizontal: 12),
             itemBuilder: (BuildContext context, int index) {
-              return CardItem();
+              return const CardItem();
             },
           ),
         )
@@ -28,7 +28,7 @@ class Home extends StatelessWidget {
 
   Container _searchBar(TextTheme textTheme) {
     return Container(
-      padding: EdgeInsets.all(16),
+      padding: const EdgeInsets.all(16),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
@@ -39,13 +39,13 @@ class Home extends StatelessWidget {
                 decoration: InputDecoration(
                     hintText: 'Search your favorite communities',
                     hintStyle: textTheme.bodyText1!.copyWith(color: kHashgrey),
-                    prefixIcon: Icon(Icons.search),
-                    border: OutlineInputBorder(),
-                    contentPadding: EdgeInsets.only(top: 5)),
+                    prefixIcon: const Icon(Icons.search),
+                    border: const OutlineInputBorder(),
+                    contentPadding: const EdgeInsets.only(top: 5),),
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             width: 5,
           ),
           Container(
@@ -58,7 +58,7 @@ class Home extends StatelessWidget {
             ),
             child: IconButton(
               onPressed: () {},
-              icon: Icon(Icons.menu),
+              icon: const Icon(Icons.menu),
             ),
           ),
         ],
@@ -68,12 +68,12 @@ class Home extends StatelessWidget {
 
   Widget _buildHeader(TextTheme textTheme) {
     return Container(
-      padding: EdgeInsets.fromLTRB(17, 50, 0, 0),
+      padding: const EdgeInsets.fromLTRB(17, 50, 0, 0),
       height: 100,
       width: double.infinity,
-      decoration: BoxDecoration(color: Colors.white, boxShadow: [
+      decoration: const BoxDecoration(color: Colors.white, boxShadow: [
         BoxShadow(),
-      ]),
+      ],),
       child: Text(
         'Good morning, Alce!',
         style: textTheme.headline1,
@@ -84,21 +84,21 @@ class Home extends StatelessWidget {
 
 class CardItem extends StatelessWidget {
   const CardItem({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
     final texttheme = Theme.of(context).textTheme;
     return Card(
-      shape: RoundedRectangleBorder(),
+      shape: const RoundedRectangleBorder(),
       child: Column(
         children: <Widget>[
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(8),
             child: Row(
               children: <Widget>[
-                CircleAvatar(
+                const CircleAvatar(
                   backgroundColor: Colors.white,
                   backgroundImage: AssetImage('assets/dries.png'),
                   radius: 37,
@@ -106,8 +106,6 @@ class CardItem extends StatelessWidget {
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.max,
                     children: <Widget>[
                       ListTile(
                         title: Text(
@@ -115,7 +113,7 @@ class CardItem extends StatelessWidget {
                           style: texttheme.headline2,
                         ),
                         subtitle: Padding(
-                          padding: const EdgeInsets.only(top: 1.0),
+                          padding: const EdgeInsets.only(top: 1),
                           child: Text(
                             'Life has a meaning but do not set out to find out. Just live it out.',
                             style:
@@ -127,7 +125,7 @@ class CardItem extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           TextButton.icon(
-                            icon: Icon(
+                            icon: const Icon(
                               Icons.people_outline_rounded,
                               size: 12,
                             ),
@@ -136,7 +134,7 @@ class CardItem extends StatelessWidget {
                                   MaterialStateProperty.all<Color>(kHashBlack),
                             ),
                             label:
-                                Text("12 People", style: texttheme.headline5),
+                                Text('12 People', style: texttheme.headline5),
                             onPressed: null,
                           ),
                           SizedBox(

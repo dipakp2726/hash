@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Privacy extends StatelessWidget {
-  Privacy({this.title, this.body});
+  const Privacy({this.title, this.body});
 
   final String? title;
   final String? body;
@@ -20,7 +20,7 @@ class Privacy extends StatelessWidget {
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  icon: Icon(Icons.arrow_back),
+                  icon: const Icon(Icons.arrow_back),
                 ),
                 Text(
                   title!,
@@ -30,7 +30,7 @@ class Privacy extends StatelessWidget {
             ),
 
             //
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
 
             Text(
               body!,

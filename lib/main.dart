@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:hash/src/Homepage.dart';
 import 'package:hash/src/interest.dart';
-
 import 'package:hash/src/login.dart';
 import 'package:hash/src/privacy.dart';
 import 'package:hash/src/signup.dart';
 import 'package:hash/src/splash.dart';
-
-import 'package:google_fonts/google_fonts.dart';
 import 'package:hash/src/values/colors.dart';
 
 void main() {
@@ -58,7 +56,7 @@ Cras fermentum venenatis sapien, sit amet egestas sapien rutrum consequat. Donec
       fontFamily: GoogleFonts.poppins().fontFamily,
       textTheme: _buildHashTexttheme(),
 
-      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         elevation: 3,
         selectedItemColor: kHashBlue,
         showSelectedLabels: false,
@@ -67,7 +65,7 @@ Cras fermentum venenatis sapien, sit amet egestas sapien rutrum consequat. Donec
         type: BottomNavigationBarType.fixed,
       ),
 
-      bottomSheetTheme: BottomSheetThemeData(
+      bottomSheetTheme: const BottomSheetThemeData(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(30),
@@ -79,16 +77,16 @@ Cras fermentum venenatis sapien, sit amet egestas sapien rutrum consequat. Donec
       // elevated button theme
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-          primary: kHashBlue,
+          backgroundColor: kHashBlue,
         ),
       ),
     );
   }
 
   TextTheme _buildHashTexttheme() {
-    return TextTheme(
+    return const TextTheme(
       button: TextStyle(
-          fontWeight: FontWeight.w600, fontSize: 18, color: kHashWhite),
+          fontWeight: FontWeight.w600, fontSize: 18, color: kHashWhite,),
 
       /// body
       bodyText1: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
@@ -108,7 +106,7 @@ Cras fermentum venenatis sapien, sit amet egestas sapien rutrum consequat. Donec
 
       /// Subtitles
       subtitle2: TextStyle(
-          fontWeight: FontWeight.w400, fontSize: 18, color: kHashgrey),
+          fontWeight: FontWeight.w400, fontSize: 18, color: kHashgrey,),
     );
   }
 }

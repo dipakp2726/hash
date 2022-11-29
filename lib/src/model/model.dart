@@ -7,7 +7,7 @@ class AppState with ChangeNotifier {
   int _count = 12;
 
   bool get isCommnunityjoined => _isCommnunityjoined;
-  get count => _count;
+  int get count => _count;
 
   void joinCommunity() {
     _isCommnunityjoined = true;

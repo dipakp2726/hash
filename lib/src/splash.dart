@@ -17,17 +17,16 @@ class _SplashState extends State<Splash> {
     _loadWidget();
   }
 
-  _loadWidget() async {
-    var _duration = Duration(seconds: splashDelay);
+  Future<Timer> _loadWidget() async {
+    final duration = Duration(seconds: splashDelay);
     return Timer(
-        _duration, () => Navigator.pushReplacementNamed(context, '/login'));
+        duration, () => Navigator.pushReplacementNamed(context, '/login'),);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.end,
       children: <Widget>[
         const SizedBox(height: 40),
@@ -43,6 +42,6 @@ class _SplashState extends State<Splash> {
           fit: BoxFit.cover,
         ),
       ],
-    ));
+    ),);
   }
 }
