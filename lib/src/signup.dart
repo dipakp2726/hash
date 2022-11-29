@@ -48,7 +48,9 @@ class _SignupState extends State<Signup> {
               const SizedBox(height: 20),
               TextField(
                 decoration: InputDecoration(
-                    hintText: 'Your Email Address', hintStyle: subtitle2,),
+                  hintText: 'Your Email Address',
+                  hintStyle: subtitle2,
+                ),
               ),
               const SizedBox(height: 20),
               TextField(
@@ -96,20 +98,22 @@ class _SignupState extends State<Signup> {
                           style: const TextStyle(color: Colors.black),
                           children: <TextSpan>[
                             TextSpan(
-                                text: 'Terms & Conditions ',
-                                style: underlineStyle,
-                                recognizer: TapGestureRecognizer()
-                                  ..onTap = () {
-                                    Navigator.pushNamed(context, '/tnc');
-                                  },),
+                              text: 'Terms & Conditions ',
+                              style: underlineStyle,
+                              recognizer: TapGestureRecognizer()
+                                ..onTap = () {
+                                  Navigator.pushNamed(context, '/tnc');
+                                },
+                            ),
                             const TextSpan(text: ' and  '),
                             TextSpan(
-                                text: 'Privacy Policy',
-                                style: underlineStyle,
-                                recognizer: TapGestureRecognizer()
-                                  ..onTap = () {
-                                    Navigator.pushNamed(context, '/privacy');
-                                  },),
+                              text: 'Privacy Policy',
+                              style: underlineStyle,
+                              recognizer: TapGestureRecognizer()
+                                ..onTap = () {
+                                  Navigator.pushNamed(context, '/privacy');
+                                },
+                            ),
                           ],
                         ),
                       ),
@@ -119,18 +123,19 @@ class _SignupState extends State<Signup> {
               ),
               const Spacer(),
               SizedBox(
-                  width: double.infinity,
-                  height: 51,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      // Respond to button press
-                      Navigator.pushReplacementNamed(context, '/interest');
-                    },
-                    child: const Text(
-                      'SIGN UP',
-                      style: TextStyle(fontSize: 18),
-                    ),
-                  ),),
+                width: double.infinity,
+                height: 51,
+                child: ElevatedButton(
+                  onPressed: () {
+                    // Respond to button press
+                    Navigator.pushReplacementNamed(context, '/interest');
+                  },
+                  child: const Text(
+                    'SIGN UP',
+                    style: TextStyle(fontSize: 18),
+                  ),
+                ),
+              ),
               const SizedBox(height: 10),
               GestureDetector(
                 onTap: () {

@@ -97,10 +97,12 @@ class Settings extends StatelessWidget {
 
   List<Padding> _buildGroups(TextStyle itemstyle) {
     return groups
-        .map((item) => Padding(
-              padding: const EdgeInsets.only(top: 4),
-              child: Text('# $item', style: itemstyle),
-            ),)
+        .map(
+          (item) => Padding(
+            padding: const EdgeInsets.only(top: 4),
+            child: Text('# $item', style: itemstyle),
+          ),
+        )
         .toList();
   }
 }

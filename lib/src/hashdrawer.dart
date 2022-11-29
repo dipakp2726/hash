@@ -22,7 +22,8 @@ class _HashDrawerState extends State<HashDrawer> {
             //  padding: EdgeInsets.fromLTRB(18, 60, 17, 0),
             child: Container(
               decoration: BoxDecoration(
-                  boxShadow: [BoxShadow(color: Colors.grey[100]!)],),
+                boxShadow: [BoxShadow(color: Colors.grey[100]!)],
+              ),
               width: 100,
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(18, 60, 17, 0),
@@ -32,9 +33,11 @@ class _HashDrawerState extends State<HashDrawer> {
                     SliverList(
                       key: GlobalKey(),
                       delegate: SliverChildBuilderDelegate(
-                          (BuildContext context, int index) {
-                        return _buildDrawerInnerItem(index);
-                      }, childCount: 5,),
+                        (BuildContext context, int index) {
+                          return _buildDrawerInnerItem(index);
+                        },
+                        childCount: 5,
+                      ),
                     ),
                     SliverList(
                       key: GlobalKey(),
@@ -73,7 +76,8 @@ class _HashDrawerState extends State<HashDrawer> {
                 ),
                 Expanded(
                   child: ListView(
-                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                     children: [
                       ListTile(
                         leading: const Icon(Icons.dashboard_outlined),
@@ -102,16 +106,21 @@ class _HashDrawerState extends State<HashDrawer> {
                         title: Text('Help', style: textTheme.headline4),
                       ),
                       ListTile(
-                        leading: const Icon(Icons.settings_input_component_sharp),
+                        leading:
+                            const Icon(Icons.settings_input_component_sharp),
                         title: Text('Settings', style: textTheme.headline4),
                       ),
                       ListTile(
                         leading: const Icon(Icons.logout),
-                        onTap: () => Navigator.of(context)
-                            .pushNamedAndRemoveUntil(
-                                '/login', (Route<dynamic> route) => false,),
-                        title: Text('Signout of community',
-                            style: textTheme.headline4,),
+                        onTap: () =>
+                            Navigator.of(context).pushNamedAndRemoveUntil(
+                          '/login',
+                          (Route<dynamic> route) => false,
+                        ),
+                        title: Text(
+                          'Signout of community',
+                          style: textTheme.headline4,
+                        ),
                       ),
                     ],
                   ),
@@ -128,20 +137,22 @@ class _HashDrawerState extends State<HashDrawer> {
     return InkWell(
       onTap: () => setState(() => _active = index),
       child: Container(
-          decoration: _active != index
-              ? null
-              : BoxDecoration(
-                  border: Border.all(width: 2),),
-          margin: const EdgeInsets.symmetric(vertical: 12),
-          padding: const EdgeInsets.all(2),
-          height: 65,
-          width: 65,
-          child: Image.asset(
-            'assets/faith4.png',
-            height: 50,
-            width: 50,
-            fit: BoxFit.fill,
-          ),),
+        decoration: _active != index
+            ? null
+            : BoxDecoration(
+                border: Border.all(width: 2),
+              ),
+        margin: const EdgeInsets.symmetric(vertical: 12),
+        padding: const EdgeInsets.all(2),
+        height: 65,
+        width: 65,
+        child: Image.asset(
+          'assets/faith4.png',
+          height: 50,
+          width: 50,
+          fit: BoxFit.fill,
+        ),
+      ),
     );
   }
 }

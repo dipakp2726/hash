@@ -47,12 +47,13 @@ class _HashTabState extends State<HashTab> {
                 left: 16,
                 right: 16,
                 child: FittedBox(
-                    fit: BoxFit.scaleDown,
-                    alignment: Alignment.bottomCenter,
-                    child: CircleAvatar(
-                      backgroundImage: AssetImage('assets/dries.png'),
-                      radius: 50,
-                    ),),
+                  fit: BoxFit.scaleDown,
+                  alignment: Alignment.bottomCenter,
+                  child: CircleAvatar(
+                    backgroundImage: AssetImage('assets/dries.png'),
+                    radius: 50,
+                  ),
+                ),
               ),
             ],
           ),
@@ -94,7 +95,8 @@ class _HashTabState extends State<HashTab> {
           child: CustomScrollView(
             slivers: <Widget>[
               SliverList(
-                delegate: SliverChildBuilderDelegate((BuildContext context, int index) {
+                delegate: SliverChildBuilderDelegate(
+                    (BuildContext context, int index) {
                   return index.isEven
                       ? const PostItemCard(
                           image: true,
@@ -116,23 +118,32 @@ class _HashTabState extends State<HashTab> {
         return Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            if (state.isCommnunityjoined) const SizedBox(
-                    height: 21,
-                  ) else SizedBox(
-                    height: 21,
-                    child: OutlinedButton(
-                      onPressed: () {
-                        state.joinCommunity();
-                      },
-                      style: ElevatedButton.styleFrom(padding: const EdgeInsets.symmetric(horizontal: 30), side: const BorderSide(color: Colors.blue)),
-                      child: Text('Join', style: textTheme.headline5),
-                    ),
-                  ),
+            if (state.isCommnunityjoined)
+              const SizedBox(
+                height: 21,
+              )
+            else
+              SizedBox(
+                height: 21,
+                child: OutlinedButton(
+                  onPressed: () {
+                    state.joinCommunity();
+                  },
+                  style: ElevatedButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(horizontal: 30),
+                      side: const BorderSide(color: Colors.blue)),
+                  child: Text('Join', style: textTheme.headline5),
+                ),
+              ),
             // SizedBox(height: 5),
             TextButton.icon(
-              style: ButtonStyle(foregroundColor: MaterialStateProperty.all<Color>(Colors.black)),
+              style: ButtonStyle(
+                  foregroundColor:
+                      MaterialStateProperty.all<Color>(Colors.black)),
               onPressed: () {
-                showBottomSheet<void>(context: context, builder: (BuildContext context) => const HashBottomSheet());
+                showBottomSheet<void>(
+                    context: context,
+                    builder: (BuildContext context) => const HashBottomSheet());
               },
               icon: const Icon(Icons.people_outline_rounded, size: 12),
               label: Text('$followers People', style: textTheme.headline5),
@@ -156,62 +167,71 @@ class HashBottomSheet extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     return Container(
       decoration: const BoxDecoration(
-        borderRadius: BorderRadius.only(topLeft: Radius.circular(30), topRight: Radius.circular(30)),
+        borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(30), topRight: Radius.circular(30)),
       ),
       height: height * 3 / 4,
-      child: Column(children: [
-        const SizedBox(height: 10),
-        const Center(
-          child: SizedBox(
-            width: 76,
-            child: Divider(
-              thickness: 4,
-              color: Colors.grey,
+      child: Column(
+        children: [
+          const SizedBox(height: 10),
+          const Center(
+            child: SizedBox(
+              width: 76,
+              child: Divider(
+                thickness: 4,
+                color: Colors.grey,
+              ),
             ),
           ),
-        ),
-        const SizedBox(height: 10),
-        Expanded(
-          child: CustomScrollView(
-            semanticChildCount: 8,
-            slivers: <Widget>[
-              SliverGrid(
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
-                delegate: SliverChildBuilderDelegate((BuildContext context, int index) {
-                  if (index == 7) {
-                    return Column(
-                      children: [
-                        Container(
-                          height: 60,
-                          width: 60,
-                          decoration: BoxDecoration(color: kHashBlue.withOpacity(.13), borderRadius: BorderRadius.circular(30)),
-                          child: const Icon(Icons.add),
-                        ),
-                        const SizedBox(height: 10),
-                        Text('Create New', style: textTheme.bodyText2),
-                      ],
-                    );
-                  } else {
-                    return Column(
-                      children: <Widget>[
-                        const CircleAvatar(
-                          radius: 30,
-                          backgroundImage: AssetImage('assets/dries.png'),
-                        ),
-                        const SizedBox(height: 10),
-                        Text(
-                          'Melo drama',
-                          style: textTheme.bodyText2,
-                        ),
-                      ],
-                    );
-                  }
-                }, childCount: 8,),
-              ),
-            ],
+          const SizedBox(height: 10),
+          Expanded(
+            child: CustomScrollView(
+              semanticChildCount: 8,
+              slivers: <Widget>[
+                SliverGrid(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 3),
+                  delegate: SliverChildBuilderDelegate(
+                    (BuildContext context, int index) {
+                      if (index == 7) {
+                        return Column(
+                          children: [
+                            Container(
+                              height: 60,
+                              width: 60,
+                              decoration: BoxDecoration(
+                                  color: kHashBlue.withOpacity(.13),
+                                  borderRadius: BorderRadius.circular(30)),
+                              child: const Icon(Icons.add),
+                            ),
+                            const SizedBox(height: 10),
+                            Text('Create New', style: textTheme.bodyText2),
+                          ],
+                        );
+                      } else {
+                        return Column(
+                          children: <Widget>[
+                            const CircleAvatar(
+                              radius: 30,
+                              backgroundImage: AssetImage('assets/dries.png'),
+                            ),
+                            const SizedBox(height: 10),
+                            Text(
+                              'Melo drama',
+                              style: textTheme.bodyText2,
+                            ),
+                          ],
+                        );
+                      }
+                    },
+                    childCount: 8,
+                  ),
+                ),
+              ],
+            ),
           ),
-        ),
-      ],),
+        ],
+      ),
     );
   }
 }
@@ -250,7 +270,8 @@ class PostItemCard extends StatelessWidget {
                     color: Colors.black38,
                   ),
                   const SizedBox(width: 5),
-                  Text('12 mins ago', style: textTheme.headline6!.copyWith(color: kHashgrey)),
+                  Text('12 mins ago',
+                      style: textTheme.headline6!.copyWith(color: kHashgrey)),
                 ],
               ),
             ),

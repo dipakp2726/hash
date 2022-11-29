@@ -32,13 +32,17 @@ class _LoginState extends State<Login> {
               ),
               Padding(
                 padding: const EdgeInsets.all(8),
-                child: Text('Sign In',
-                    style: Theme.of(context).textTheme.headline1,),
+                child: Text(
+                  'Sign In',
+                  style: Theme.of(context).textTheme.headline1,
+                ),
               ),
               const SizedBox(height: 20),
               TextField(
                 decoration: InputDecoration(
-                    hintText: 'Your Email Address', hintStyle: subtitle2,),
+                  hintText: 'Your Email Address',
+                  hintStyle: subtitle2,
+                ),
               ),
               const SizedBox(height: 20),
               TextField(
@@ -70,18 +74,19 @@ class _LoginState extends State<Login> {
               ),
               const Spacer(),
               SizedBox(
-                  width: double.infinity,
-                  height: 51,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      // Respond to button press
-                      Navigator.pushReplacementNamed(context, '/interest');
-                    },
-                    child: const Text(
-                      'SIGN IN',
-                      style: TextStyle(fontSize: 18),
-                    ),
-                  ),),
+                width: double.infinity,
+                height: 51,
+                child: ElevatedButton(
+                  onPressed: () {
+                    // Respond to button press
+                    Navigator.pushReplacementNamed(context, '/interest');
+                  },
+                  child: const Text(
+                    'SIGN IN',
+                    style: TextStyle(fontSize: 18),
+                  ),
+                ),
+              ),
               const SizedBox(height: 10),
               GestureDetector(
                 onTap: () {

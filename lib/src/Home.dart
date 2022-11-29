@@ -37,11 +37,12 @@ class Home extends StatelessWidget {
               height: 37,
               child: TextField(
                 decoration: InputDecoration(
-                    hintText: 'Search your favorite communities',
-                    hintStyle: textTheme.bodyText1!.copyWith(color: kHashgrey),
-                    prefixIcon: const Icon(Icons.search),
-                    border: const OutlineInputBorder(),
-                    contentPadding: const EdgeInsets.only(top: 5),),
+                  hintText: 'Search your favorite communities',
+                  hintStyle: textTheme.bodyText1!.copyWith(color: kHashgrey),
+                  prefixIcon: const Icon(Icons.search),
+                  border: const OutlineInputBorder(),
+                  contentPadding: const EdgeInsets.only(top: 5),
+                ),
               ),
             ),
           ),
@@ -71,9 +72,12 @@ class Home extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(17, 50, 0, 0),
       height: 100,
       width: double.infinity,
-      decoration: const BoxDecoration(color: Colors.white, boxShadow: [
-        BoxShadow(),
-      ],),
+      decoration: const BoxDecoration(
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(),
+        ],
+      ),
       child: Text(
         'Good morning, Alce!',
         style: textTheme.headline1,

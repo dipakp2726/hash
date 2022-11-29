@@ -15,7 +15,12 @@ class Homepage extends StatefulWidget {
 class _HomepageState extends State<Homepage> {
   var _currentIndex = 0;
 
-  final _tabs = <Widget?>[const Home(), const HashTab(), null, const Settings()];
+  final _tabs = <Widget?>[
+    const Home(),
+    const HashTab(),
+    null,
+    const Settings()
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -31,22 +36,29 @@ class _HomepageState extends State<Homepage> {
           currentIndex: _currentIndex,
           onTap: (val) => setState(() => _currentIndex = val),
           items: [
-            const BottomNavigationBarItem(icon: Icon(Icons.home_outlined), label: ''),
+            const BottomNavigationBarItem(
+                icon: Icon(Icons.home_outlined), label: ''),
             BottomNavigationBarItem(
-                icon: Padding(
-                  padding: const EdgeInsets.only(right: 24),
-                  child: Image.asset('assets/hashIcon.png',
-                      color: _currentIndex == 1 ? kHashBlue : Colors.black,),
+              icon: Padding(
+                padding: const EdgeInsets.only(right: 24),
+                child: Image.asset(
+                  'assets/hashIcon.png',
+                  color: _currentIndex == 1 ? kHashBlue : Colors.black,
                 ),
-                label: '',),
+              ),
+              label: '',
+            ),
             const BottomNavigationBarItem(
-                icon: Padding(
-                  padding: EdgeInsets.only(left: 24),
-                  child: Icon(Icons.messenger_outline_outlined),
-                ),
-                label: '',),
+              icon: Padding(
+                padding: EdgeInsets.only(left: 24),
+                child: Icon(Icons.messenger_outline_outlined),
+              ),
+              label: '',
+            ),
             const BottomNavigationBarItem(
-                icon: Icon(Icons.settings_outlined), label: '',),
+              icon: Icon(Icons.settings_outlined),
+              label: '',
+            ),
           ],
         ),
       ),

@@ -65,11 +65,12 @@ class Interest extends StatelessWidget {
             Expanded(
               child: SingleChildScrollView(
                 child: Wrap(
-                    spacing: 8, // gap between adjacent chips
-                    runSpacing: 4,
-                    children: pickup
-                        .map((title) => InterestChip(title: title))
-                        .toList(),),
+                  spacing: 8, // gap between adjacent chips
+                  runSpacing: 4,
+                  children: pickup
+                      .map((title) => InterestChip(title: title))
+                      .toList(),
+                ),
               ),
             ),
             const SizedBox(height: 60),
@@ -77,17 +78,18 @@ class Interest extends StatelessWidget {
         ),
       ),
       floatingActionButton: Container(
-          margin: const EdgeInsets.all(10),
-          padding: const EdgeInsets.only(left: 30),
-          width: double.infinity,
-          height: 51,
-          child: ElevatedButton(
-            onPressed: () => Navigator.pushReplacementNamed(context, '/home'),
-            child: const Text(
-              'Next',
-              style: TextStyle(fontSize: 18),
-            ),
-          ),),
+        margin: const EdgeInsets.all(10),
+        padding: const EdgeInsets.only(left: 30),
+        width: double.infinity,
+        height: 51,
+        child: ElevatedButton(
+          onPressed: () => Navigator.pushReplacementNamed(context, '/home'),
+          child: const Text(
+            'Next',
+            style: TextStyle(fontSize: 18),
+          ),
+        ),
+      ),
     );
   }
 }

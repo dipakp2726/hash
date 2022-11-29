@@ -86,7 +86,10 @@ Cras fermentum venenatis sapien, sit amet egestas sapien rutrum consequat. Donec
   TextTheme _buildHashTexttheme() {
     return const TextTheme(
       button: TextStyle(
-          fontWeight: FontWeight.w600, fontSize: 18, color: kHashWhite,),
+        fontWeight: FontWeight.w600,
+        fontSize: 18,
+        color: kHashWhite,
+      ),
 
       /// body
       bodyText1: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
@@ -106,7 +109,10 @@ Cras fermentum venenatis sapien, sit amet egestas sapien rutrum consequat. Donec
 
       /// Subtitles
       subtitle2: TextStyle(
-          fontWeight: FontWeight.w400, fontSize: 18, color: kHashgrey,),
+        fontWeight: FontWeight.w400,
+        fontSize: 18,
+        color: kHashgrey,
+      ),
     );
   }
 }

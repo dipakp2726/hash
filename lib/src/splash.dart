@@ -20,28 +20,31 @@ class _SplashState extends State<Splash> {
   Future<Timer> _loadWidget() async {
     final duration = Duration(seconds: splashDelay);
     return Timer(
-        duration, () => Navigator.pushReplacementNamed(context, '/login'),);
+      duration,
+      () => Navigator.pushReplacementNamed(context, '/login'),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(
-      mainAxisAlignment: MainAxisAlignment.end,
-      children: <Widget>[
-        const SizedBox(height: 40),
-        Expanded(
-          child: Image.asset(
-            'assets/hash.png',
-            height: 128,
-            width: 128,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: <Widget>[
+          const SizedBox(height: 40),
+          Expanded(
+            child: Image.asset(
+              'assets/hash.png',
+              height: 128,
+              width: 128,
+            ),
           ),
-        ),
-        Image.asset(
-          'assets/splash.png',
-          fit: BoxFit.cover,
-        ),
-      ],
-    ),);
+          Image.asset(
+            'assets/splash.png',
+            fit: BoxFit.cover,
+          ),
+        ],
+      ),
+    );
   }
 }
